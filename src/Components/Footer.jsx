@@ -1,12 +1,14 @@
-import React from 'react'
-
 const Footer = () => {
   return (
     <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
+      <p>Powered by</p>
+      <img
+        src="../../public/images/DH.png"
+        className="img-fluid"
+        alt="DH-logo"
+      ></img>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

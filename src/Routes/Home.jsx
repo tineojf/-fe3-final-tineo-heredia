@@ -26,7 +26,7 @@ const Home = () => {
       : state.data.map((item) => <Card key={item.id} item={item} />);
   return (
     <main className="">
-      <h1>Home</h1>
+      <h1 className="py-4">Home</h1>
       <div className="card-grid">{dataHTML}</div>
     </main>
   );
