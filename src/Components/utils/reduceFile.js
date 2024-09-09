@@ -12,7 +12,8 @@ export const reducer = (state, action) => {
     case "ADD-FAV": {
       const idSet = new Set(state.favs.map((item) => item.id));
       if (idSet.has(action.payload.id)) {
-        console.log("El favorito ya existe.");
+        // console.log("El favorito ya existe.");
+        alert("Ya está agregado a favoritos")
         return state;
       }
 
