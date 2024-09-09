@@ -1,8 +1,6 @@
 import { useContextGlobal } from "../Components/utils/useContextFunction";
 import Card from "../Components/Card";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Favs = () => {
   const { state, dispatch } = useContextGlobal();
   const { favs } = state;
@@ -14,17 +12,19 @@ const Favs = () => {
 
   return (
     <>
-      <h1>Dentists Favs</h1>
-      <button
-        onClick={() => {
-          dispatch({ type: "CLEAN-FAVS" });
-        }}
-      >
-        Limpiar favoritos
-      </button>
+      <h1 className="py-4">Dentists Favs</h1>
+      <p className="text-center pb-4">
+        <button
+          onClick={() => {
+            dispatch({ type: "CLEAN-FAVS" });
+          }}
+          className="btn btn-lg btn-danger"
+        >
+          Limpiar favoritos
+        </button>
+      </p>
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
-        {/* Deberan renderizar una Card por cada uno de ellos */}
         {favsHTML}
       </div>
     </>

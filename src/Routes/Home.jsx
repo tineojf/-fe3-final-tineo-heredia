@@ -3,8 +3,6 @@ import axios from "axios";
 import { useContextGlobal } from "../Components/utils/useContextFunction";
 import Card from "../Components/Card";
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Home = () => {
   const { state, dispatch } = useContextGlobal();
   const url = "https://jsonplaceholder.typicode.com/users";
