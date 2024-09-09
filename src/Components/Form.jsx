@@ -11,6 +11,8 @@ const Form = () => {
   const [successMessage, setSuccessMessage] = useState("");
 
   const handleInput = (e) => {
+    setSuccessMessage("");
+
     const llave = e.target.name;
     const valor = e.target.value;
 
@@ -28,7 +30,6 @@ const Form = () => {
   };
 
   const handleSubmit = (e) => {
-    setSuccessMessage("");
     e.preventDefault();
 
     if ((errorName == "") & (errorEmail == "")) {
@@ -59,10 +60,12 @@ const Form = () => {
         />
         <p>{errorEmail}</p>
 
-        <button type="submit">Enviar</button>
+        <button type="submit" className="btn btn-lg btn-primary">
+          Enviar
+        </button>
       </form>
 
-      <h2>{successMessage}</h2>
+      <h2 className="mt-5">{successMessage}</h2>
     </div>
   );
 };
