@@ -31,7 +31,7 @@ const Card = (propiedades) => {
               <p className="card-text">Phone: {item.phone}</p>
               <p className="card-text">
                 Website:{" "}
-                <a href="#" className="link" target="_blank" rel="noreferrer">
+                <a href="#" className="link">
                   {item.website}
                 </a>
               </p>
