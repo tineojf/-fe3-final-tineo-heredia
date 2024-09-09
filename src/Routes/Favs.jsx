@@ -7,7 +7,7 @@ const Favs = () => {
 
   const favsHTML =
     favs.length == 0
-      ? "No tienes favoritos"
+      ? "Don't have favorites"
       : favs.map((item) => <Card key={item.id} item={item} />);
 
   return (
@@ -20,7 +20,7 @@ const Favs = () => {
           }}
           className="btn btn-lg btn-danger"
         >
-          Limpiar favoritos
+          Clean favorites
         </button>
       </p>
       <div className="card-grid">
