@@ -10,7 +10,17 @@ const Card = (propiedades) => {
   };
 
   if (entorno == "detail") {
-    return <div>Detalle</div>;
+    return (
+      <div className="card">
+        <Link to={routesList.detail + id}>
+          <p>ID: {id}</p>
+          <p>Nombre: {name}</p>
+          <p>Email: {item.email}</p>
+          <p>Teléfono: {item.phone}</p>
+          <p>Web: {item.website}</p>
+        </Link>
+      </div>
+    );
   }
 
   return (
