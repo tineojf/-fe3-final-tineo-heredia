@@ -15,7 +15,7 @@ const Detail = () => {
     const fetchAPI = async (url) => {
       const res = await axios.get(url);
       const data = await res.data;
-      console.log(data);
+      // console.log(data);
       setData(data);
     };
 
