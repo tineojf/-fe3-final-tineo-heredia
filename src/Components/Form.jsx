@@ -16,12 +16,12 @@ const Form = () => {
     const llave = e.target.name;
     const valor = e.target.value;
 
-    if (llave == "nombre") {
-      setErrorName(valor.length > 5 ? "" : "Se requiere longitud mayor a 5");
+    if (llave == "name") {
+      setErrorName(valor.length > 5 ? "" : "Length greater than 5 is required");
       setFormulario({ ...formulario, name: valor });
     } else if (llave == "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const mensaje = emailRegex.test(valor) ? "" : "Email invalido";
+      const mensaje = emailRegex.test(valor) ? "" : "Invalid email";
       setErrorEmail(mensaje);
       setFormulario({ ...formulario, email: valor });
     } else {
@@ -40,32 +40,47 @@ const Form = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nombre"
-          name="nombre"
-          onChange={handleInput}
-          value={formulario.name}
-        />
-        <p>{errorName}</p>
+    <div className="">
+      <form onSubmit={handleSubmit} style={{ height: "30vh" }}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="inputText"
+            name="name"
+            onChange={handleInput}
+            value={formulario.name}
+          />
+          <p className="txt-error">{errorName}</p>
+        </div>
 
-        <input
-          type="text"
-          placeholder="Email"
-          name="email"
-          onChange={handleInput}
-          value={formulario.email}
-        />
-        <p>{errorEmail}</p>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="inputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+            onChange={handleInput}
+            value={formulario.email}
+          />
+          <p className="txt-error">{errorEmail}</p>
+        </div>
 
-        <button type="submit" className="btn btn-lg btn-primary">
-          Enviar
+        <button type="submit" className="btn btn-primary">
+          Submit
         </button>
       </form>
 
-      <h2 className="mt-5">{successMessage}</h2>
+      <p className="text-center mt-5" style={{ fontWeight: "bold" }}>
+        {successMessage}
+      </p>
     </div>
   );
 };

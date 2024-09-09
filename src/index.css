@@ -133,3 +133,8 @@ tr:nth-child(even) {
   align-items: center;
   align-content: stretch;
 }
+
+.txt-error {
+  color: red;
+  font-weight: bold;
+}
