@@ -1,9 +1,16 @@
-import { createContext } from "react";
+import { createContext, useReducer } from "react";
+import { initialState, reducer } from "./reduceFile";
 
 export const ContextGlobal = createContext(undefined);
 
 export const ContextProvider = (propiedades) => {
   const { children } = propiedades;
 
-  return <ContextGlobal.Provider value={{}}>{children}</ContextGlobal.Provider>;
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <ContextGlobal.Provider value={{ state, dispatch }}>
+      {children}
+    </ContextGlobal.Provider>
+  );
 };
