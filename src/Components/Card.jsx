@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
 import { routesList } from "../Routes/routesList";
+import { useContextGlobal } from "./utils/useContextFunction";
 
 const Card = (propiedades) => {
   const { item, entorno } = propiedades;
   const { name, username, id } = item;
 
+  const { dispatch } = useContextGlobal();
+
   const addFav = () => {
     // Aqui iria la logica para agregar la Card en el localStorage
+    dispatch({ type: "ADD-FAV", payload: item });
   };
 
   if (entorno == "detail") {

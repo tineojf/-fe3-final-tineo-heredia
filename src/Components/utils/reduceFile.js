@@ -9,8 +9,23 @@ export const reducer = (state, action) => {
       return { ...state, data: action.payload };
     }
 
-    case "ADDFAV": {
-      return {};
+    case "ADD-FAV": {
+      const idSet = new Set(state.favs.map((item) => item.id));
+      if (idSet.has(action.payload.id)) {
+        console.log("El favorito ya existe.");
+        return state;
+      }
+
+      return {
+        ...state,
+        favs: [...state.favs, action.payload]
+      };
+    }
+
+    case "CLEAN-FAVS": {
+      return {
+        ...state, favs: []
+      }
     }
 
     default:

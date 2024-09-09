@@ -23,9 +23,7 @@ const Home = () => {
   const dataHTML =
     state.data.length == 0
       ? "Cargando..."
-      : state.data.map((item) => (
-          <Card key={item.id} item={item} entorno="home" />
-        ));
+      : state.data.map((item) => <Card key={item.id} item={item} />);
   return (
     <main className="">
       <h1>Home</h1>
