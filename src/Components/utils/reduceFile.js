@@ -2,8 +2,12 @@ export const initialState = { theme: "light", data: [], favs: [] };
 
 export const reducer = (state, action) => {
   switch (action.type) {
-    case "CHANGETHEME": {
-      return {};
+    case "CHANGE-THEME": {
+      const estado = state.theme == "light" ? "dark" : "light"
+      return {
+        ...state,
+        theme: estado
+      };
     }
     case "LOAD-DATA": {
       return { ...state, data: action.payload };

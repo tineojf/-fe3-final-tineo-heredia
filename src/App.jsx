@@ -7,10 +7,14 @@ import Contact from "./Routes/Contact";
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import { routesList } from "./Routes/routesList";
+import { useContextGlobal } from "./Components/utils/useContextFunction";
 
 function App() {
+  const { state } = useContextGlobal();
+  const background =
+    state.theme == "dark" ? { backgroundColor: "black", color: "white" } : {};
   return (
-    <div className="App">
+    <div className="App" data-bs-theme={state.theme} style={background}>
       <Navbar />
       <Routes>
         <Route path={routesList.home} element={<Home />} />

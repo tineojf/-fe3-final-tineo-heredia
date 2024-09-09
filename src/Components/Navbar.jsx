@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { routesList } from "../Routes/routesList";
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import { useContextGlobal } from "./utils/useContextFunction";
 
 const Navbar = () => {
+  const { dispatch } = useContextGlobal();
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
       <div className="container-fluid">
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -27,7 +27,13 @@ const Navbar = () => {
             </li>
 
             <li className="nav-item">
-              <button>Change theme</button>
+              <button
+                onClick={() => {
+                  dispatch({ type: "CHANGE-THEME" });
+                }}
+              >
+                Change theme
+              </button>
             </li>
           </ul>
         </div>
