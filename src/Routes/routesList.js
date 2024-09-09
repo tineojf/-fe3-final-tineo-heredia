@@ -1,7 +1,7 @@
 export const routesList = {
   home: "/",
   contact: "/contact",
-  detail: "/detail/:id",
+  detail: "/detail/",
   favs: "/favs",
   notFound: "*"
 }

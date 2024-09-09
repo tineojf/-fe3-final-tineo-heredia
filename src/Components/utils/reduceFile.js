@@ -5,8 +5,8 @@ export const reducer = (state, action) => {
     case "CHANGETHEME": {
       return {};
     }
-    case "LOADDATA": {
-      return {};
+    case "LOAD-DATA": {
+      return { ...state, data: action.payload };
     }
 
     case "ADDFAV": {

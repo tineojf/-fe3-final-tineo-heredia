@@ -1,17 +1,37 @@
-import React from 'react'
-import Card from '../Components/Card'
+import { useEffect } from "react";
+import axios from "axios";
+import { useContextGlobal } from "../Components/utils/useContextFunction";
+import Card from "../Components/Card";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  return (
-    <main className="" >
-      <h1>Home</h1>
-      <div className='card-grid'>
-        {/* Aqui deberias renderizar las cards */}
-      </div>
-    </main>
-  )
-}
+  const { state, dispatch } = useContextGlobal();
+  const url = "https://jsonplaceholder.typicode.com/users";
 
-export default Home
+  useEffect(() => {
+    const fetchAPI = async (url) => {
+      const res = await axios.get(url);
+      const data = await res.data;
+      console.log(data);
+      dispatch({ type: "LOAD-DATA", payload: data });
+    };
+
+    fetchAPI(url);
+  }, [dispatch]);
+
+  const dataHTML =
+    state.data.length == 0
+      ? "Cargando..."
+      : state.data.map((item) => (
+          <Card key={item.id} item={item} entorno="home" />
+        ));
+  return (
+    <main className="">
+      <h1>Home</h1>
+      <div className="card-grid">{dataHTML}</div>
+    </main>
+  );
+};
+
+export default Home;
