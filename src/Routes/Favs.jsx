@@ -8,7 +8,7 @@ const Favs = () => {
   const favsHTML =
     favs.length == 0
       ? "Don't have favorites"
-      : favs.map((item) => <Card key={item.id} item={item} />);
+      : favs.map((item) => <Card key={item.id} item={item} favs={true} />);
 
   return (
     <>
@@ -23,10 +23,7 @@ const Favs = () => {
           Clean favorites
         </button>
       </p>
-      <div className="card-grid">
-        {/* este componente debe consumir los destacados del localStorage */}
-        {favsHTML}
-      </div>
+      <div className="card-grid">{favsHTML}</div>
     </>
   );
 };

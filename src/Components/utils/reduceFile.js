@@ -1,4 +1,8 @@
-export const initialState = { theme: "light", data: [], favs: [] };
+export const initialState = {
+  theme: "light",
+  data: [],
+  favs: JSON.parse(localStorage.getItem("favs")) || []
+};
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -9,25 +13,28 @@ export const reducer = (state, action) => {
         theme: estado
       };
     }
+
     case "LOAD-DATA": {
       return { ...state, data: action.payload };
     }
 
     case "ADD-FAV": {
-      const idSet = new Set(state.favs.map((item) => item.id));
-      if (idSet.has(action.payload.id)) {
-        // console.log("El favorito ya existe.");
+      const itemFound = state.favs.find((item) => item.id == action.payload.id);
+      if (itemFound) {
         alert("Ya está agregado a favoritos")
         return state;
       }
 
+      const newFavs = [...state.favs, action.payload];
+      localStorage.setItem("favs", JSON.stringify(newFavs))
       return {
         ...state,
-        favs: [...state.favs, action.payload]
-      };
+        favs: newFavs
+      }
     }
 
     case "CLEAN-FAVS": {
+      localStorage.removeItem("favs")
       return {
         ...state, favs: []
       }
