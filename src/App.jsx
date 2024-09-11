@@ -8,6 +8,7 @@ import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import { routesList } from "./Routes/routesList";
 import { useContextGlobal } from "./Components/utils/useContextFunction";
+import NotFound from "./Routes/NotFound";
 
 function App() {
   const { state } = useContextGlobal();
@@ -21,6 +22,7 @@ function App() {
         <Route path={routesList.contact} element={<Contact />} />
         <Route path={routesList.detail + ":id"} element={<Detail />} />
         <Route path={routesList.favs} element={<Favs />} />
+        <Route path={routesList.notFound} element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
