@@ -20,7 +20,7 @@ const Card = (propiedades) => {
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img
-        src="../../public/images/doctor.jpg"
+        src="/public/images/doctor.jpg"
         className="card-img-top"
         alt={id}
       />

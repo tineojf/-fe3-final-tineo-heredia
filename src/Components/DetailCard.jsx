@@ -6,7 +6,7 @@ function DetailCard(propiedades) {
       <div className="row g-0">
         <div className="col-md-4">
           <img
-            src="../../public/images/doctor.jpg"
+            src="/public/images/doctor.jpg"
             className="img-fluid rounded-start"
             alt={id}
           />
