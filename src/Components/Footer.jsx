@@ -3,7 +3,7 @@ const Footer = () => {
     <footer>
       <p>Powered by</p>
       <img
-        src="/images/dh-logo.png"
+        src="/images/DH.png"
         className="img-fluid"
         alt="DH-logo"
       ></img>
