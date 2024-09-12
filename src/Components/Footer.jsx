@@ -1,12 +1,8 @@
 const Footer = () => {
   return (
-    <footer>
+    <footer style={{ height: "60vh" }}>
       <p>Powered by</p>
-      <img
-        src="/images/DH.png"
-        className="img-fluid"
-        alt="DH-logo"
-      ></img>
+      <img src="/images/DH.png" className="img-fluid" alt="DH-logo"></img>
     </footer>
   );
 };
