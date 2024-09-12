@@ -8,11 +8,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-per">
       <div className="container-fluid">
-        <img
-          src="../../public/DH.ico"
-          className="rounded mx-auto d-block"
-          alt="logo-DH"
-        />
+        <img src="/DH.ico" className="rounded mx-auto d-block" alt="logo-DH" />
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
