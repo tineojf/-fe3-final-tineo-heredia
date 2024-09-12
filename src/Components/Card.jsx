@@ -37,7 +37,10 @@ const Card = (propiedades) => {
         </li>
       </ul>
       <div className="card-body">
-        <button onClick={addFav} className="btn btn-md btn-warning">
+        <button
+          onClick={addFav}
+          className={`btn btn-md btn-${isFav ? "danger" : "warning"}`}
+        >
           {isFav ? "Remove" : "Add"} Fav
         </button>
       </div>
