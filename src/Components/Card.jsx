@@ -4,26 +4,24 @@ import { useContextGlobal } from "./utils/useContextFunction";
 import DetailCard from "./DetailCard";
 
 const Card = (propiedades) => {
-  const { item, entorno, favs } = propiedades;
+  const { item, entorno } = propiedades;
   const { name, username, id } = item;
 
-  const { dispatch } = useContextGlobal();
+  const { state, dispatch } = useContextGlobal();
 
   const addFav = () => {
-    dispatch({ type: "ADD-FAV", payload: item });
+    dispatch({ type: isFav ? "REMOVE-FAV" : "ADD-FAV", payload: item });
   };
 
   if (entorno == "detail") {
     return <DetailCard item={item} />;
   }
 
+  const isFav = state.favs.find((fav) => fav.id == id);
+
   return (
     <div className="card" style={{ width: "18rem" }}>
-      <img
-        src="/images/doctor.jpg"
-        className="card-img-top"
-        alt={id}
-      />
+      <img src="/images/doctor.jpg" className="card-img-top" alt={id} />
       <div className="card-body">
         <h5 className="card-title">{name}</h5>
       </div>
@@ -38,13 +36,11 @@ const Card = (propiedades) => {
           </Link>
         </li>
       </ul>
-      {!favs && (
-        <div className="card-body">
-          <button onClick={addFav} className="btn btn-md btn-warning">
-            Add fav
-          </button>
-        </div>
-      )}
+      <div className="card-body">
+        <button onClick={addFav} className="btn btn-md btn-warning">
+          {isFav ? "Remove" : "Add"} Fav
+        </button>
+      </div>
     </div>
   );
 };

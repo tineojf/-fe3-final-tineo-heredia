@@ -8,7 +8,7 @@ const Favs = () => {
   const favsHTML =
     favs.length == 0
       ? "Don't have favorites"
-      : favs.map((item) => <Card key={item.id} item={item} favs={true} />);
+      : favs.map((item) => <Card key={item.id} item={item} />);
 
   return (
     <>

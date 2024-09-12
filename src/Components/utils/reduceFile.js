@@ -19,13 +19,21 @@ export const reducer = (state, action) => {
     }
 
     case "ADD-FAV": {
+      const newFavs = [...state.favs, action.payload];
+      localStorage.setItem("favs", JSON.stringify(newFavs))
+      return {
+        ...state,
+        favs: newFavs
+      }
+    }
+
+    case "REMOVE-FAV": {
       const itemFound = state.favs.find((item) => item.id == action.payload.id);
-      if (itemFound) {
-        alert("Ya está agregado a favoritos")
+      if (!itemFound) {
         return state;
       }
 
-      const newFavs = [...state.favs, action.payload];
+      const newFavs = state.favs.filter((item) => item.id != action.payload.id);
       localStorage.setItem("favs", JSON.stringify(newFavs))
       return {
         ...state,
