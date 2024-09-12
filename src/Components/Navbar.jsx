@@ -6,11 +6,11 @@ const Navbar = () => {
   const { dispatch } = useContextGlobal();
 
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary navbar-per">
+    <nav className="navbar navbar-expand bg-body-tertiary navbar-per">
       <div className="container-fluid">
         <img src="/DH.ico" className="rounded mx-auto d-block" alt="logo-DH" />
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link to={routesList.home} className="nav-link active">
